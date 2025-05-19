@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nivas Kanniah | Cybersecurity Enthusiast</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nivas Kanniah | Cybersecurity Professional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #2d2d85;
-      --accent: #00bcd4;
-      --bg: #1e1e2f;
-      --text: #f0f0f0;
+      --primary: #0a192f;
+      --accent: #64ffda;
+      --text: #ccd6f6;
+      --dim: #8892b0;
+      --bg-dark: #020c1b;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg);
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary);
       color: var(--text);
       line-height: 1.6;
     }
 
     header {
-      background: var(--primary);
-      color: white;
       padding: 4rem 1rem;
       text-align: center;
+      background-color: var(--bg-dark);
     }
 
     header h1 {
       font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .typing {
-      font-size: 1.2rem;
-      font-weight: 300;
       color: var(--accent);
     }
 
+    header p {
+      font-size: 1.2rem;
+      color: var(--dim);
+    }
+
     nav {
-      background-color: #111;
-      padding: 0.7rem;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: #112240;
+      padding: 1rem;
     }
 
     nav a {
       color: var(--text);
-      margin: 0 1rem;
       text-decoration: none;
       font-weight: 500;
     }
@@ -64,7 +64,7 @@
 
     section {
       padding: 3rem 1rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
     }
 
@@ -73,28 +73,34 @@
       margin-bottom: 1rem;
     }
 
-    ul {
-      margin-left: 1.5rem;
+    .cert-list a,
+    .project-list a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
-    .project-box {
-      background: #292946;
+    .cert-list li,
+    .project-list li {
+      margin-bottom: 0.7rem;
+    }
+
+    .box {
+      background-color: #112240;
       padding: 1rem;
       border-radius: 8px;
       margin-bottom: 1rem;
       transition: transform 0.3s ease;
     }
 
-    .project-box:hover {
-      transform: scale(1.02);
+    .box:hover {
+      transform: translateY(-5px);
     }
 
     footer {
+      background-color: #0a192f;
       text-align: center;
-      padding: 1.5rem;
-      background-color: #111;
-      color: #ccc;
-      margin-top: 2rem;
+      padding: 2rem 1rem;
+      color: var(--dim);
     }
 
     @media (max-width: 600px) {
@@ -104,97 +110,59 @@
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <h1>Nivas Kanniah</h1>
-    <p class="typing" id="typed-text"></p>
+    <p>Technical Support | Cybersecurity Enthusiast | Blue Team Explorer</p>
   </header>
 
   <nav>
     <a href="#about">About</a>
-    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      I'm Nivas — a Technical Support Professional exploring Cybersecurity, focusing on Blue Team operations. I enjoy working with firewalls, endpoint protection, SIEM tools, and learning by doing. Currently preparing for the ISC2 Certified in Cybersecurity exam and building my hands-on skills through labs and community contributions.
-    </p>
+    <p>I’m a passionate cybersecurity learner with experience in technical support, actively exploring Blue Team operations. I'm currently preparing for the ISC2 Certified in Cybersecurity (CC) exam while engaging with real-world labs and platform-based simulations.</p>
   </section>
 
-  <section id="skills">
-    <h2>Skills & Certifications</h2>
-    <ul>
-      <li>Technical Support, Network Troubleshooting</li>
-      <li>Security Concepts (ISC2 CC in progress)</li>
-      <li>Cisco Networking & Security (Cisco Academy)</li>
-      <li>SIEM Basics, Splunk (training), Firewalls</li>
-      <li>TryHackMe, Let's Defend, Packet Tracer</li>
-      <li>IBM Design Thinking, Google IT Support (Coursera)</li>
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul class="cert-list">
+      <li><a href="https://www.credly.com/badges/ibm-practitioner" target="_blank">IBM Enterprise Design Thinking Practitioner</a></li>
+      <li><a href="https://www.netacad.com" target="_blank">Cisco Networking Academy - Network Support and Security</a></li>
+      <li><a href="https://www.linkedin.com/learning/certificates/cross-cultural-intelligence" target="_blank">LinkedIn - Developing Cross-Cultural Intelligence</a></li>
+      <li><a href="https://coursera.org/verify/google-it-support" target="_blank">Google IT Support (Coursera)</a></li>
     </ul>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project-box">
-      <h3>Password Strength Checker</h3>
-      <p>A web-based tool built with Python + Flask to check password strength, giving real-time feedback.</p>
-    </div>
-    <div class="project-box">
-      <h3>Security Awareness Training</h3>
-      <p>Conducted basic security sessions (Firewall, Antivirus, Endpoint) for team members in a government project setting.</p>
-    </div>
+    <ul class="project-list">
+      <li class="box">
+        <strong>Password Strength Checker</strong><br>
+        <a href="https://github.com/Nivas-Kanniah/password-checker" target="_blank">GitHub Repo</a> – A Flask web app that analyzes and displays password strength dynamically.
+      </li>
+      <li class="box">
+        <strong>Security Training (NEVA Project)</strong><br>
+        Led sessions on firewall, antivirus, and endpoint security for Puducherry government staff and dignitaries.
+      </li>
+    </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:nivaskanniah@gmail.com" style="color: var(--accent);">nivaskanniah@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/nivas-kanniah" target="_blank" style="color: var(--accent);">linkedin.com/in/nivas-kanniah</a></p>
-    <p>GitHub: <a href="https://github.com/Nivas-Kanniah" target="_blank" style="color: var(--accent);">github.com/Nivas-Kanniah</a></p>
+    <p>Email: <a href="mailto:nivaskanniah@gmail.com">nivaskanniah@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/nivas-kanniah" target="_blank">linkedin.com/in/nivas-kanniah</a></p>
+    <p>GitHub: <a href="https://github.com/Nivas-Kanniah" target="_blank">github.com/Nivas-Kanniah</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Nivas Kanniah | Built with HTML, CSS & JavaScript</p>
+    <p>&copy; 2025 Nivas Kanniah | Cybersecurity Portfolio</p>
   </footer>
-
-  <script>
-    const roles = [
-      "Technical Support Professional",
-      "Cybersecurity Enthusiast",
-      "Blue Team Explorer",
-      "Future SOC Analyst"
-    ];
-    let i = 0, j = 0, current = "", isDeleting = false;
-    const typedText = document.getElementById("typed-text");
-
-    function typeEffect() {
-      if (i < roles.length) {
-        if (!isDeleting && j <= roles[i].length) {
-          current = roles[i].substring(0, j++);
-        } else if (isDeleting && j >= 0) {
-          current = roles[i].substring(0, j--);
-        }
-
-        typedText.textContent = current;
-
-        if (j === roles[i].length) {
-          isDeleting = true;
-          setTimeout(typeEffect, 1500);
-        } else if (isDeleting && j === 0) {
-          isDeleting = false;
-          i = (i + 1) % roles.length;
-          setTimeout(typeEffect, 400);
-        } else {
-          setTimeout(typeEffect, isDeleting ? 40 : 80);
-        }
-      }
-    }
-
-    typeEffect();
-  </script>
-
 </body>
+
 </html>
