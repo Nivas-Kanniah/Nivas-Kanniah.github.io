@@ -1,4 +1,4 @@
-# NivasKanniah.github.io
+# Nivas Kanniah.github.io
 
 Welcome to my personal website and portfolio!
 
