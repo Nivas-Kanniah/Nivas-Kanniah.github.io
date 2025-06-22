@@ -2,7 +2,7 @@
 
 Welcome to my personal website and portfolio!
 
-This site is built using **GitHub Pages** and showcases my work, certifications, and journey in **Cybersecurity**, **Technical Support**, and **UI/UX Design**.
+This site is built using **GitHub Pages** and showcases my work, certifications, and journey in **Cybersecurity** and **Technical Support**
 
 ### 🔹 What You’ll Find Here
 
