@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -15,6 +15,32 @@
       --text: #ccd6f6;
       --dim: #8892b0;
       --bg-dark: #020c1b;
+
+      --primary-light: #ffffff;
+      --accent-light: #007acc;
+      --text-light: #0a192f;
+      --dim-light: #666;
+      --bg-light: #f5f5f5;
+    }
+
+    html[data-theme='dark'] {
+      --bg: var(--primary);
+      --fg: var(--text);
+      --accent: var(--accent);
+      --dim: var(--dim);
+      --nav-bg: #112240;
+      --header-bg: var(--bg-dark);
+      --footer-bg: var(--primary);
+    }
+
+    html[data-theme='light'] {
+      --bg: var(--primary-light);
+      --fg: var(--text-light);
+      --accent: var(--accent-light);
+      --dim: var(--dim-light);
+      --nav-bg: #e6e6e6;
+      --header-bg: var(--bg-light);
+      --footer-bg: var(--bg-light);
     }
 
     * {
@@ -25,15 +51,16 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: var(--primary);
-      color: var(--text);
+      background-color: var(--bg);
+      color: var(--fg);
       line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     header {
       padding: 4rem 1rem;
       text-align: center;
-      background-color: var(--bg-dark);
+      background-color: var(--header-bg);
     }
 
     header h1 {
@@ -50,12 +77,12 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
-      background-color: #112240;
+      background-color: var(--nav-bg);
       padding: 1rem;
     }
 
     nav a {
-      color: var(--text);
+      color: var(--fg);
       text-decoration: none;
       font-weight: 500;
     }
@@ -76,15 +103,29 @@
     }
 
     footer {
-      background-color: #0a192f;
+      background-color: var(--footer-bg);
       text-align: center;
       padding: 2rem 1rem;
       color: var(--dim);
     }
 
+    #theme-toggle {
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.6rem;
+      border: 1px solid var(--dim);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--fg);
+    }
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
+      }
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
       }
     }
   </style>
@@ -112,7 +153,6 @@
     "email": "mailto:itsnivask.com"
   }
   </script>
-
 </head>
 
 <body>
@@ -126,6 +166,7 @@
     <a href="certifications.html">Certifications</a>
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
+    <button id="theme-toggle">Toggle Theme</button>
   </nav>
 
   <section>
@@ -136,6 +177,16 @@
   <footer>
     <p>&copy; 2025 Nivas Kanniah | Cybersecurity Portfolio</p>
   </footer>
+
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    toggleButton.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      htmlElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    });
+  </script>
 </body>
 
 </html>
