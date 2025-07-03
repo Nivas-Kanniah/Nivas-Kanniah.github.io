@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,6 +7,12 @@
   <title>Nivas Kanniah | Cybersecurity Professional</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <meta name="google-site-verification" content="wrJTImF8gJJD2mp3RMAJfv62rI4tTbsw0zwR9Z7Xvbg" />
+
+  <!-- Load saved theme before rendering -->
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
 
   <style>
     :root {
@@ -114,6 +120,7 @@
       top: 1rem;
       right: 1rem;
       font-size: 0.9rem;
+      font-weight: bold; /* Bold text */
       padding: 0.4rem 0.8rem;
       border: 1px solid var(--dim);
       border-radius: 6px;
@@ -148,7 +155,7 @@
     }
   </style>
 
-  <!-- JSON-LD structured data for Google Knowledge Panel -->
+  <!-- Structured data for Google -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -198,13 +205,16 @@
     <p>&copy; 2025 Nivas Kanniah | Cybersecurity Portfolio</p>
   </footer>
 
+  <!-- Theme toggle script -->
   <script>
     const toggleButton = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
 
     toggleButton.addEventListener('click', () => {
       const currentTheme = htmlElement.getAttribute('data-theme');
-      htmlElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
     });
   </script>
 </body>
