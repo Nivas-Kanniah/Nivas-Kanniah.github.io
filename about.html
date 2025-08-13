@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Nivas Kanniah — About</title>
+<title>Nivas Kanniah — Interactive Timeline</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -17,15 +17,6 @@
     --glass: rgba(255,255,255,0.03);
     font-family: 'Poppins', sans-serif;
   }
-  [data-theme="light"]{
-    --bg:#f5f5f5;
-    --panel:#e0e7ff;
-    --card:#ffffff;
-    --muted:#444;
-    --accent:#0077ff;
-    --accent-2:#0055cc;
-    --pill-bg:#d0e0ff;
-  }
   *{box-sizing:border-box}
   body{
     margin:0;
@@ -33,51 +24,26 @@
     color:var(--muted);
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
-    transition: all 0.3s ease;
   }
-
-  /* Header/Menu */
   header{
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    padding:16px 24px;
-    background:linear-gradient(180deg, rgba(5,18,31,0.6), rgba(2,8,17,0.6));
-    border-bottom:1px solid rgba(255,255,255,0.05);
-    flex-wrap: wrap;
-  }
-  .logo{color:var(--accent); font-weight:700; font-size:20px; text-decoration:none;}
-  nav{display:flex; gap:16px; flex-wrap:wrap; align-items:center;}
-  nav a{color:var(--muted); text-decoration:none; font-weight:600;}
-  nav a:hover{color:var(--accent);}
-  .theme-toggle{
-    cursor:pointer;
-    background:var(--card);
-    border:none;
-    padding:6px 12px;
-    border-radius:6px;
-    color:var(--accent);
-    font-weight:600;
-  }
-
-  /* Timeline CSS */
-  header.timeline-header{
     padding:28px 20px;
     text-align:center;
     border-bottom:1px solid rgba(255,255,255,0.02);
     background:linear-gradient(180deg, rgba(5,18,31,0.6), rgba(2,8,17,0.6));
   }
-  header.timeline-header h1{margin:0;color:var(--accent);font-weight:700}
+  header h1{margin:0;color:var(--accent);font-weight:700}
   main{max-width:1200px;margin:28px auto;padding:0 18px;display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:start}
-
   /* Tabs */
   .tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
   .tab-btn{background:var(--card);border-radius:8px;padding:8px 12px;color:var(--muted);cursor:pointer;border:1px solid rgba(255,255,255,0.03);font-weight:600}
   .tab-btn.active{background:linear-gradient(90deg,var(--panel), #0a314f);color:#eafff5;box-shadow:0 6px 18px rgba(0,0,0,0.6), inset 0 -1px 0 rgba(255,255,255,0.02)}
-
   /* Timeline column */
   .timeline-wrap{background:var(--panel);padding:18px;border-radius:12px;min-height:420px;border:1px solid rgba(255,255,255,0.03)}
-  .timeline{position:relative;padding-left:36px;margin:8px 0}
+  .timeline{
+    position:relative;
+    padding-left:36px;
+    margin:8px 0;
+  }
   .timeline::before{
     content:"";
     position:absolute;
@@ -137,7 +103,6 @@
   .bullets li{margin:8px 0;color:var(--muted);line-height:1.4}
   .highlight{margin-top:12px;padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(100,255,218,0.03), rgba(100,255,218,0.01));border-left:4px solid rgba(100,255,218,0.12);color:#eafff5}
   .location{font-size:13px;color:#9fb0d5;margin-top:6px}
-
   /* smaller screens */
   @media (max-width:880px){
     main{grid-template-columns:1fr; padding:18px}
@@ -150,19 +115,8 @@
 </style>
 </head>
 <body>
-
 <header>
-  <a href="index.html" class="logo">Nivas Kanniah</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-    <button class="theme-toggle" id="theme-toggle">Toggle Theme</button>
-  </nav>
-</header>
-
-<header class="timeline-header">
+  <h1>Nivas Kanniah — Timeline</h1>
   <div style="margin-top:8px;color:var(--muted);font-size:14px">Click items on the left to view details. Tabs let you switch categories.</div>
 </header>
 
@@ -176,11 +130,14 @@
     </div>
 
     <div class="timeline-wrap">
-      <div class="timeline" id="timeline"></div>
+      <div class="timeline" id="timeline">
+        <!-- timeline items injected here -->
+      </div>
     </div>
   </div>
 
   <div class="details-panel" id="details">
+    <!-- details injected here -->
     <div id="placeholder" style="opacity:0.9">
       <div class="role-head">
         <div class="left">
@@ -207,19 +164,188 @@
 </main>
 
 <script>
-/* Theme toggle logic */
-const themeBtn = document.getElementById('theme-toggle');
-themeBtn.addEventListener('click', ()=>{
-  if(document.documentElement.getAttribute('data-theme') === 'light'){
-    document.documentElement.removeAttribute('data-theme');
-  } else {
-    document.documentElement.setAttribute('data-theme','light');
-  }
-});
+/* DATA: update or tweak these entries as you want */
+const DATA = {
+  experience: [
+    {
+      id: 'nimbus',
+      title: 'Technical Support Professional',
+      company: 'Nimbus Systems Pvt Ltd',
+      period: 'Jan 2025 – Present',
+      duration: '8 months',
+      location: 'Puducherry, India · On-site',
+      skills: ['Incident Management','Network Admin','User Training','Documentation','Issue Tracking'],
+      responsibilities:[
+        'Supporting users during the National e-Vidhan Application (NeVA) rollout.',
+        'Providing user training and creating clear documentation and guides.',
+        'Identifying, tracking and following up software issues to improve performance.'
+      ],
+      highlight: 'Contributed to a smooth legislative application rollout by combining technical troubleshooting with user-facing training.'
+    },
+    {
+      id: 'nielit',
+      title: 'Cybersecurity Intern',
+      company: 'NATIONAL INSTITUTE OF ELECTRONICS & INFORMATION TECHNOLOGY (NIELIT)',
+      period: 'Jun 2025 – Present',
+      duration: '3 months',
+      location: 'Puducherry, India · Remote',
+      skills: ['Threat Detection','DNS Security','Incident Response','Network Security'],
+      responsibilities:[
+        'Participating in the IN23 Online Internship program in Cyber Security.',
+        'Simulating DNS spoofing attacks in a controlled environment and implementing secure DNS configurations.',
+        'Working on mini-projects focused on defensive controls and traffic analysis.'
+      ],
+      highlight: 'Built practical skills in DNS security and attack simulation as part of a government certification program.'
+    },
+    {
+      id: 'lenovo',
+      title: 'Student Intern (In Plant Training)',
+      company: 'Lenovo',
+      period: 'Nov 2022',
+      duration: '1 month',
+      location: 'Puducherry, India · On-site',
+      skills: ['Quality Control','Lean Manufacturing','Process Documentation'],
+      responsibilities:[
+        'Assisted on assembly line operations and supported quality control processes.',
+        'Observed production workflows and documented standard operating procedures.'
+      ],
+      highlight: 'Gained hands-on exposure to manufacturing processes and quality assurance practices.'
+    }
+  ],
 
-/* Timeline data */
-const DATA = { 
-  /* ... keep all your DATA object as-is ... */
+  education: [
+    {
+      id:'btech',
+      title:'Bachelor of Technology - BTech, Computer Science and Engineering',
+      company:'Manakula Vinayagar Institute of Technology',
+      period:'Jan 2021 – Nov 2024',
+      duration:'4 years',
+      location:'Manakula Vinayagar Institute of Technology',
+      skills:['Windows OS Troubleshooting','Network Security','Programming'],
+      responsibilities:[
+        'Completed capstone and coursework in core CS topics.',
+        'Led campus initiatives on climate awareness as College Chairperson for Climate Change Wing.'
+      ],
+      highlight: 'Graduated with First Class and engaged in leadership & innovation activities.'
+    },
+    {
+      id:'de-mentee',
+      title:'Certification Course, UI/UX Design',
+      company:'De Mentee Academy',
+      period:'Sep 2024 – 2025',
+      duration:'8–11 months',
+      location:'Online / Mentorship',
+      skills:['User Research','Wireframing','Figma','Prototyping'],
+      responsibilities:[
+        'Hands-on mentorship covering UI/UX fundamentals and portfolio projects.',
+        'Worked on guided projects and collaborated with mentors.'
+      ],
+      highlight: 'Built UI/UX portfolio pieces and design thinking skills.'
+    }
+  ],
+
+  projects: [
+    {
+      id:'bay-freelancers',
+      title:'Bay of Freelancers — Freelancing Portal (UI/UX)',
+      company:'De Mentee Academy',
+      period:'Aug 2025 – Present',
+      duration:'ongoing (started Aug 2025)',
+      location:'Remote',
+      skills:['UI Design','UX','Research','Accessibility'],
+      responsibilities:[
+        'Designing UI flows and user journeys for a regional freelancing portal.',
+        'Creating accessible interfaces and prototypes for stakeholder feedback.'
+      ],
+      highlight:'Designing a region-first freelancing portal focused on Tamil Nadu & Puducherry talent.'
+    },
+    {
+      id:'dns-sim',
+      title:'DNS Spoofing Attack Simulation & Secure DNS Configuration',
+      company:'NIELIT (IN23 Internship)',
+      period:'Aug 2025 – Present',
+      duration:'ongoing (started Aug 2025)',
+      location:'Remote',
+      skills:['DNS Security','Traffic Analysis','Attack Simulation'],
+      responsibilities:[
+        'Simulating DNS spoofing attacks in a controlled lab.',
+        'Implementing secure DNS configurations (DNSSEC/DoH/DoT) and documenting mitigations.'
+      ],
+      highlight:'Demonstrated secure DNS deployment strategies in a hands-on internship project.'
+    },
+    {
+      id:'phish',
+      title:'Phishing Email Analyzer',
+      company:'Personal / Streamlit App',
+      period:'June 2025',
+      duration:'1 month',
+      location:'Deployed on Streamlit Cloud',
+      skills:['Python','Streamlit','Email Analysis','VirusTotal API'],
+      responsibilities:[
+        'Built a tool to parse .eml files, analyze headers/content, and produce a risk score.',
+        'Integrated VirusTotal for attachment scanning and added PDF report export.'
+      ],
+      highlight:'Deployed a lightweight phishing analysis app for rapid email triage.'
+    }
+  ],
+
+  volunteering: [
+    {
+      id:'lernexia',
+      title:'Technical Writer (Volunteer)',
+      company:'Lernexia — Upzella project',
+      period:'Aug 2025 – Present',
+      duration:'1 mo',
+      location:'Remote',
+      skills:['Technical Writing','Product Docs','Onboarding Guides'],
+      responsibilities:[
+        'Creating internal and external documentation for the Upzella product.',
+        'Working closely with founders to maintain clear product documentation.'
+      ],
+      highlight:'Improved onboarding and knowledge sharing through concise technical content.'
+    },
+    {
+      id:'testio',
+      title:'Tester (Volunteer)',
+      company:'Test IO',
+      period:'Sep 2024 – Present',
+      duration:'1 yr',
+      location:'Remote',
+      skills:['Exploratory Testing','Bug Reporting','Cross-browser Testing'],
+      responsibilities:[
+        'Perform exploratory and structured testing on apps and websites across devices.',
+        'Report clear, reproducible bugs to help QA teams improve product quality.'
+      ],
+      highlight:'Contributed to bug reports that improved product stability across multiple environments.'
+    },
+    {
+      id:'iste',
+      title:'Student Member',
+      company:'Indian Society for Technical Education (ISTE)',
+      period:'Jan 2021 – Present',
+      duration:'4 yrs 8 mos',
+      location:'Student Membership',
+      skills:['Community','Networking','Events'],
+      responsibilities:[
+        'Participated in student events and technical activities to enhance career development.'
+      ],
+      highlight:'Active member supporting career development and student-led initiatives.'
+    },
+    {
+      id:'yi',
+      title:'College Chairperson — Climate Change Vertical',
+      company:'Young Indians (YI)',
+      period:'Jul 2023 – Jun 2024',
+      duration:'1 yr',
+      location:'College Level',
+      skills:['Leadership','Event Organizing','Sustainability'],
+      responsibilities:[
+        'Led initiatives on climate awareness and sustainability within campus.',
+        'Organized events and campaigns to engage students in climate action.'
+      ],
+      highlight:'Led campus-level climate initiatives and awareness programs.'
+    }
+  ]
 };
 
 /* UI helpers */
@@ -230,81 +356,118 @@ const tabsEl = document.getElementById('tabs');
 let activeTab = 'experience';
 let activeItemId = null;
 
-function clearTimeline(){ timelineEl.innerHTML = ''; }
+function clearTimeline(){
+  timelineEl.innerHTML = '';
+}
 
 function createTimelineItems(list){
   clearTimeline();
-  list.forEach(item=>{
-    const div = document.createElement('div');
-    div.className='timeline-item';
-    if(activeItemId===item.id) div.classList.add('active');
-    div.dataset.id=item.id;
-
-    // <-- Restored HTML content for marker, title & period -->
-    div.innerHTML = `<div class="timeline-marker">✓</div>
-                     <div>
-                       <div class="title">${item.title}</div>
-                       <div class="period">${item.period}</div>
-                     </div>`;
-
-    div.addEventListener('click',()=>{setActiveItem(item.id);});
-    timelineEl.appendChild(div);
+  list.forEach((item, idx) => {
+    const it = document.createElement('div');
+    it.className = 'timeline-item';
+    it.dataset.id = item.id;
+    it.innerHTML = `
+      <div class="timeline-marker" aria-hidden="true">${idx+1}</div>
+      <div style="margin-left:36px">
+        <div class="title">${escapeHtml(item.title)}</div>
+        <div class="meta"><span class="company">${escapeHtml(item.company)}</span></div>
+        <div class="period">${escapeHtml(item.period)}</div>
+      </div>
+    `;
+    it.addEventListener('click', () => selectItem(item.id));
+    timelineEl.appendChild(it);
   });
+  // auto-select first
+  if(list.length>0) selectItem(list[0].id, true);
 }
 
-function setActiveItem(id){
-  activeItemId=id;
-  document.querySelectorAll('.timeline-item').forEach(el=>el.classList.remove('active'));
-  const el = document.querySelector(`.timeline-item[data-id='${id}']`);
-  if(el) el.classList.add('active');
-
-  const item = DATA[activeTab].find(x=>x.id===id);
+function selectItem(id, skipScroll=false){
+  const container = DATA[activeTab];
+  const item = container.find(x=>x.id===id);
   if(!item) return;
-
-  document.getElementById('detail-title').innerText=item.title;
-  document.getElementById('detail-company').innerText=item.company;
-  document.getElementById('detail-period').innerText=item.period;
-  document.getElementById('detail-location').innerText=item.location;
-
+  activeItemId = id;
+  // mark active
+  document.querySelectorAll('.timeline-item').forEach(el=>{
+    el.classList.toggle('active', el.dataset.id===id);
+  });
+  // populate details
+  document.getElementById('detail-title').textContent = item.title;
+  document.getElementById('detail-company').textContent = item.company;
+  document.getElementById('detail-period').textContent = item.period + (item.duration ? ' · ' + item.duration : '');
+  document.getElementById('detail-location').textContent = item.location || '';
+  // skills
   const skillsRow = document.getElementById('detail-skills');
-  skillsRow.innerHTML='';
-  item.skills.forEach(skill=>{
-    const pill=document.createElement('div');
-    pill.className='pill';
-    pill.innerText=skill;
-    skillsRow.appendChild(pill);
+  skillsRow.innerHTML = '';
+  (item.skills || []).forEach(s=>{
+    const p = document.createElement('div');
+    p.className = 'pill';
+    p.textContent = s;
+    skillsRow.appendChild(p);
   });
-
-  const bullets = document.getElementById('detail-resps');
-  bullets.innerHTML='';
-  item.responsibilities.forEach(r=>{
-    const li=document.createElement('li'); li.innerText=r; bullets.appendChild(li);
+  // responsibilities
+  const res = document.getElementById('detail-resps');
+  res.innerHTML = '';
+  (item.responsibilities || []).forEach(r=>{
+    const li = document.createElement('li');
+    li.textContent = r;
+    res.appendChild(li);
   });
+  // highlight
+  const hl = document.getElementById('detail-highlight');
+  if(item.highlight){
+    hl.style.display='block';
+    hl.textContent = item.highlight;
+  } else {
+    hl.style.display='none';
+  }
 
-  const highlight = document.getElementById('detail-highlight');
-  if(item.highlight){ highlight.style.display='block'; highlight.innerText=item.highlight; }
-  else{ highlight.style.display='none'; highlight.innerText=''; }
+  // scroll into view on small screens
+  if(!skipScroll && window.innerWidth < 880){
+    detailsEl.scrollIntoView({behavior:'smooth'});
+  }
 }
 
-tabsEl.querySelectorAll('.tab-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    tabsEl.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    activeTab=btn.dataset.tab;
-    activeItemId=null;
-    createTimelineItems(DATA[activeTab]);
-    document.getElementById('detail-title').innerText='Select an item';
-    document.getElementById('detail-company').innerText='';
-    document.getElementById('detail-period').innerText='';
-    document.getElementById('detail-location').innerText='';
-    document.getElementById('detail-skills').innerHTML='';
-    document.getElementById('detail-resps').innerHTML='<li>Select a timeline item to see responsibilities and highlights.</li>';
-    document.getElementById('detail-highlight').style.display='none';
+function switchTab(tab){
+  activeTab = tab;
+  // update tab active class
+  Array.from(document.querySelectorAll('.tab-btn')).forEach(b=>{
+    b.classList.toggle('active', b.dataset.tab===tab);
   });
+  // build timeline for this tab
+  createTimelineItems(DATA[tab]);
+}
+
+/* simple escaper to avoid injection when injecting text */
+function escapeHtml(str){
+  if(!str) return '';
+  return String(str).replace(/[&<>"']/g, s=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[s]));
+}
+
+/* Tab events */
+tabsEl.addEventListener('click', (e)=>{
+  const b = e.target.closest('.tab-btn');
+  if(!b) return;
+  const t = b.dataset.tab;
+  switchTab(t);
 });
 
-createTimelineItems(DATA[activeTab]);
-</script>
+/* initialize default tab */
+switchTab(activeTab);
 
+/* make timeline items accessible by keyboard */
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'ArrowDown' || e.key === 'j'){
+    const items = Array.from(document.querySelectorAll('.timeline-item'));
+    const idx = items.findIndex(i=>i.dataset.id===activeItemId);
+    if(idx < items.length-1) items[idx+1].click();
+  } else if(e.key === 'ArrowUp' || e.key === 'k'){
+    const items = Array.from(document.querySelectorAll('.timeline-item'));
+    const idx = items.findIndex(i=>i.dataset.id===activeItemId);
+    if(idx > 0) items[idx-1].click();
+  }
+});
+</script>
 </body>
 </html>
