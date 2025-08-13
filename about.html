@@ -163,7 +163,7 @@
 </header>
 
 <header class="timeline-header">
-  <h1>Nivas Kanniah — Timeline</h1>
+
   <div style="margin-top:8px;color:var(--muted);font-size:14px">Click items on the left to view details. Tabs let you switch categories.</div>
 </header>
 
@@ -419,11 +419,7 @@ function createTimelineItems(list){
     div.className='timeline-item';
     if(activeItemId===item.id) div.classList.add('active');
     div.dataset.id=item.id;
-    div.innerHTML=`<div class="timeline-marker">✓</div>
-                   <div>
-                     <div class="title">${item.title}</div>
-                     <div class="period">${item.period}</div>
-                   </div>`;
+  
     div.addEventListener('click',()=>{setActiveItem(item.id);});
     timelineEl.appendChild(div);
   });
