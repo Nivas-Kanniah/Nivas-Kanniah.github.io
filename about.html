@@ -419,7 +419,7 @@ function createTimelineItems(list){
     div.className='timeline-item';
     if(activeItemId===item.id) div.classList.add('active');
     div.dataset.id=item.id;
-    div.innerHTML=`<div class="timeline-marker">✓</div>
+    div.innerHTML=`<div class="timeline-marker"></div>
                    <div>
                      <div class="title">${item.title}</div>
                      <div class="period">${item.period}</div>
