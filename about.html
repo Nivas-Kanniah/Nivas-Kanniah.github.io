@@ -163,7 +163,6 @@
 </header>
 
 <header class="timeline-header">
-
   <div style="margin-top:8px;color:var(--muted);font-size:14px">Click items on the left to view details. Tabs let you switch categories.</div>
 </header>
 
@@ -218,188 +217,9 @@ themeBtn.addEventListener('click', ()=>{
   }
 });
 
-/* Original Timeline JS */
-const DATA = {
-  experience: [
-    {
-      id: 'nimbus',
-      title: 'Technical Support Professional',
-      company: 'Nimbus Systems Pvt Ltd',
-      period: 'Jan 2025 – Present',
-      duration: '8 months',
-      location: 'Puducherry, India · On-site',
-      skills: ['Incident Management','Network Admin','User Training','Documentation','Issue Tracking'],
-      responsibilities:[
-        'Supporting users during the National e-Vidhan Application (NeVA) rollout.',
-        'Providing user training and creating clear documentation and guides.',
-        'Identifying, tracking and following up software issues to improve performance.'
-      ],
-      highlight: 'Contributed to a smooth legislative application rollout by combining technical troubleshooting with user-facing training.'
-    },
-    {
-      id: 'nielit',
-      title: 'Cybersecurity Intern',
-      company: 'NATIONAL INSTITUTE OF ELECTRONICS & INFORMATION TECHNOLOGY (NIELIT)',
-      period: 'Jun 2025 – Present',
-      duration: '3 months',
-      location: 'Puducherry, India · Remote',
-      skills: ['Threat Detection','DNS Security','Incident Response','Network Security'],
-      responsibilities:[
-        'Participating in the IN23 Online Internship program in Cyber Security.',
-        'Simulating DNS spoofing attacks in a controlled environment and implementing secure DNS configurations.',
-        'Working on mini-projects focused on defensive controls and traffic analysis.'
-      ],
-      highlight: 'Built practical skills in DNS security and attack simulation as part of a government certification program.'
-    },
-    {
-      id: 'lenovo',
-      title: 'Student Intern (In Plant Training)',
-      company: 'Lenovo',
-      period: 'Nov 2022',
-      duration: '1 month',
-      location: 'Puducherry, India · On-site',
-      skills: ['Quality Control','Lean Manufacturing','Process Documentation'],
-      responsibilities:[
-        'Assisted on assembly line operations and supported quality control processes.',
-        'Observed production workflows and documented standard operating procedures.'
-      ],
-      highlight: 'Gained hands-on exposure to manufacturing processes and quality assurance practices.'
-    }
-  ],
-
-  education: [
-    {
-      id:'btech',
-      title:'Bachelor of Technology - BTech, Computer Science and Engineering',
-      company:'Manakula Vinayagar Institute of Technology',
-      period:'Jan 2021 – Nov 2024',
-      duration:'4 years',
-      location:'Manakula Vinayagar Institute of Technology',
-      skills:['Windows OS Troubleshooting','Network Security','Programming'],
-      responsibilities:[
-        'Completed capstone and coursework in core CS topics.',
-        'Led campus initiatives on climate awareness as College Chairperson for Climate Change Wing.'
-      ],
-      highlight: 'Graduated with First Class and engaged in leadership & innovation activities.'
-    },
-    {
-      id:'de-mentee',
-      title:'Certification Course, UI/UX Design',
-      company:'De Mentee Academy',
-      period:'Sep 2024 – 2025',
-      duration:'8–11 months',
-      location:'Online / Mentorship',
-      skills:['User Research','Wireframing','Figma','Prototyping'],
-      responsibilities:[
-        'Hands-on mentorship covering UI/UX fundamentals and portfolio projects.',
-        'Worked on guided projects and collaborated with mentors.'
-      ],
-      highlight: 'Built UI/UX portfolio pieces and design thinking skills.'
-    }
-  ],
-
-  projects: [
-    {
-      id:'bay-freelancers',
-      title:'Bay of Freelancers — Freelancing Portal (UI/UX)',
-      company:'De Mentee Academy',
-      period:'Aug 2025 – Present',
-      duration:'ongoing (started Aug 2025)',
-      location:'Remote',
-      skills:['UI Design','UX','Research','Accessibility'],
-      responsibilities:[
-        'Designing UI flows and user journeys for a regional freelancing portal.',
-        'Creating accessible interfaces and prototypes for stakeholder feedback.'
-      ],
-      highlight:'Designing a region-first freelancing portal focused on Tamil Nadu & Puducherry talent.'
-    },
-    {
-      id:'dns-sim',
-      title:'DNS Spoofing Attack Simulation & Secure DNS Configuration',
-      company:'NIELIT (IN23 Internship)',
-      period:'Aug 2025 – Present',
-      duration:'ongoing (started Aug 2025)',
-      location:'Remote',
-      skills:['DNS Security','Traffic Analysis','Attack Simulation'],
-      responsibilities:[
-        'Simulating DNS spoofing attacks in a controlled lab.',
-        'Implementing secure DNS configurations (DNSSEC/DoH/DoT) and documenting mitigations.'
-      ],
-      highlight:'Demonstrated secure DNS deployment strategies in a hands-on internship project.'
-    },
-    {
-      id:'phish',
-      title:'Phishing Email Analyzer',
-      company:'Personal / Streamlit App',
-      period:'June 2025',
-      duration:'1 month',
-      location:'Deployed on Streamlit Cloud',
-      skills:['Python','Streamlit','Email Analysis','VirusTotal API'],
-      responsibilities:[
-        'Built a tool to parse .eml files, analyze headers/content, and produce a risk score.',
-        'Integrated VirusTotal for attachment scanning and added PDF report export.'
-      ],
-      highlight:'Deployed a lightweight phishing analysis app for rapid email triage.'
-    }
-  ],
-
-  volunteering: [
-    {
-      id:'lernexia',
-      title:'Technical Writer (Volunteer)',
-      company:'Lernexia — Upzella project',
-      period:'Aug 2025 – Present',
-      duration:'1 mo',
-      location:'Remote',
-      skills:['Technical Writing','Product Docs','Onboarding Guides'],
-      responsibilities:[
-        'Creating internal and external documentation for the Upzella product.',
-        'Working closely with founders to maintain clear product documentation.'
-      ],
-      highlight:'Improved onboarding and knowledge sharing through concise technical content.'
-    },
-    {
-      id:'testio',
-      title:'Tester (Volunteer)',
-      company:'Test IO',
-      period:'Sep 2024 – Present',
-      duration:'1 yr',
-      location:'Remote',
-      skills:['Exploratory Testing','Bug Reporting','Cross-browser Testing'],
-      responsibilities:[
-        'Perform exploratory and structured testing on apps and websites across devices.',
-        'Report clear, reproducible bugs to help QA teams improve product quality.'
-      ],
-      highlight:'Contributed to bug reports that improved product stability across multiple environments.'
-    },
-    {
-      id:'iste',
-      title:'Student Member',
-      company:'Indian Society for Technical Education (ISTE)',
-      period:'Jan 2021 – Present',
-      duration:'4 yrs 8 mos',
-      location:'Student Membership',
-      skills:['Community','Networking','Events'],
-      responsibilities:[
-        'Participated in student events and technical activities to enhance career development.'
-      ],
-      highlight:'Active member supporting career development and student-led initiatives.'
-    },
-    {
-      id:'yi',
-      title:'College Chairperson — Climate Change Vertical',
-      company:'Young Indians (YI)',
-      period:'Jul 2023 – Jun 2024',
-      duration:'1 yr',
-      location:'College Level',
-      skills:['Leadership','Event Organizing','Sustainability'],
-      responsibilities:[
-        'Led initiatives on climate awareness and sustainability within campus.',
-        'Organized events and campaigns to engage students in climate action.'
-      ],
-      highlight:'Led campus-level climate initiatives and awareness programs.'
-    }
-  ]
+/* Timeline data */
+const DATA = { 
+  /* ... keep all your DATA object as-is ... */
 };
 
 /* UI helpers */
@@ -419,7 +239,14 @@ function createTimelineItems(list){
     div.className='timeline-item';
     if(activeItemId===item.id) div.classList.add('active');
     div.dataset.id=item.id;
-  
+
+    // <-- Restored HTML content for marker, title & period -->
+    div.innerHTML = `<div class="timeline-marker">✓</div>
+                     <div>
+                       <div class="title">${item.title}</div>
+                       <div class="period">${item.period}</div>
+                     </div>`;
+
     div.addEventListener('click',()=>{setActiveItem(item.id);});
     timelineEl.appendChild(div);
   });
