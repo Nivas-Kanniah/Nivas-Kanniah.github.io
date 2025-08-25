@@ -88,17 +88,18 @@
     background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(100,255,218,0.08));
     border-radius:4px;
   }
-  .timeline-item{
-    position:relative;
-    margin:8px 0 22px 0;
-    padding:6px 8px;
-    cursor:pointer;
-    display:flex;
-    gap:10px;
-    align-items:flex-start;
-    border-radius:8px;
-    transition:background .18s, transform .12s;
-  }
+  .timeline-item {
+  position: relative;
+  margin: 8px 0 22px 0;
+  padding: 6px 8px 6px 48px; /* ⬅ increased left padding */
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border-radius: 8px;
+  transition: background .18s, transform .12s;
+}
+
   .timeline-item:hover{transform:translateX(4px)}
   .timeline-marker{
     position:absolute;
